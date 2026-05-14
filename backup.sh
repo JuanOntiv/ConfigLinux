@@ -8,6 +8,9 @@ backup() {
     if [[ -n "$cambios" ]]; then
         echo "Acutalizando: $origen"
         rsync -av "$origen" "$destino"
+        git add .
+        git commit -m "Changes on $origen"
+        git push
     else
         echo "Sin cambios: $origen"
     fi
