@@ -1,0 +1,15 @@
+sys-auth/pambase elogind
+media-libs/libglvnd X
+net-wireless/wpa_supplicant dbus
+# required by x11-libs/pango-1.57.0::gentoo
+# required by gui-wm/swayfx-0.5.3::guru
+# required by swayfx (argument)
+>=media-libs/freetype-2.14.3 harfbuzz
+# required by media-sound/pulseaudio-daemon-17.0-r1::gentoo[alsa-plugin,alsa]
+# required by media-libs/libpulse-17.0::gentoo
+# required by www-client/waterfox-bin-6.6.12::guru
+# required by waterfox-bin (argument)
+>=media-plugins/alsa-plugins-1.2.12 pulseaudio
+# required by gui-apps/swaync-0.12.6::guru
+# required by swaync (argument)
+>=gui-libs/gtk4-layer-shell-1.1.1-r1 introspection vala
