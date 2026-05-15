@@ -1,1 +1,1 @@
-media-video/ffmpeg vaapi vdpau -nvenc libvpx libaom 
+media-video/ffmpeg vaapi vdpau -nvenc libvpx libaom opus vpx x264 openh264
