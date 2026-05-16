@@ -1,13 +1,21 @@
 #!/bin/bash
 
+home="/home/jp"
+repo="$home/Scripts/System-Config"
+destino="$repo/backup"
+
 backup() {
     local origen="$1"
-    local destino="$2"
-    cambios=$(rsync -ai --dry-run "$origen" "$destino")
+    local destino_local="$2"
+    cambios=$(rsync -ai --dry-run "$origen" "$destino_local")
 
     if [[ -n "$cambios" ]]; then
-        echo "Acutalizando: $origen"
-        rsync -av "$origen" "$destino"
+        echo "Actualizando: $origen"
+        rsync -av "$origen" "$destino_local"
+
+	cd "$repo" || exit 1
+	pwd
+
         git add .
         git commit -m "Changes on $origen"
         git push
@@ -17,11 +25,10 @@ backup() {
 }
 
 
-destino="$HOME/Scripts/System-Config/backup"
-
 while read -r ruta; do
     if [[ "$ruta" != /* ]]; then
-        ruta="$HOME/$ruta"
+        ruta="$home/$ruta"
     fi
     backup "$ruta" "$destino"
-done < paths.conf
+done < "$repo/paths.conf"
+
