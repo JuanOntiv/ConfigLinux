@@ -21,6 +21,7 @@ backup() {
         git push
     else
         echo "Sin cambios: $origen"
+	pwd
     fi
 }
 
@@ -32,3 +33,4 @@ while read -r ruta; do
     backup "$ruta" "$destino"
 done < "$repo/paths.conf"
 
+echo '\n-----------------------------------------\n'
